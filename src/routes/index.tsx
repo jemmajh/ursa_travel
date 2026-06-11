@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import ursaLogo from "@/assets/ursa-logo.png.asset.json";
 import heroAurora from "@/assets/hero-aurora.jpg";
 import tileLakeland from "@/assets/tile-lakeland.jpg";
 import tileHelsinki from "@/assets/tile-helsinki.jpg";
