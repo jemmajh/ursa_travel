@@ -327,7 +327,10 @@ function Footer() {
   return (
     <footer className="bg-navy text-arctic/70 py-10">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
-        <div className="text-white-bright font-display text-lg tracking-wider">URSA</div>
+        <div className="flex items-center gap-2.5 text-white-bright font-display text-lg tracking-wider">
+          <img src={ursaLogo.url} alt="Ursa" className="h-6 w-auto opacity-80" />
+          URSA
+        </div>
         <div>© 2026 Ursa Travel · Finland, only Finland</div>
         <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
       </div>
