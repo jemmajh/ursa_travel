@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ursa — Finland Journeys" },
-      { name: "description", content: "Personalised luxury travel through Finland. AI-matched. Human-confirmed." },
+      { title: "Ursa — Luxury Finland Journeys for Discerning Travellers" },
+      { name: "description", content: "Ursa crafts deeply personal journeys through Finland — shaped by your taste, paced for your freedom, confirmed by specialists who know Finland like their own backyard." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Ursa Travel" },
       { name: "twitter:card", content: "summary_large_image" },
