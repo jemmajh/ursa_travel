@@ -5,13 +5,23 @@ import logoAsset from "@/assets/ursa-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ursa — Finland Journeys" },
-      { name: "description", content: "Deeply personal journeys through Finland. AI-matched, human-confirmed luxury travel for those who prefer to go slowly." },
-      { property: "og:title", content: "Ursa — Finland Journeys" },
-      { property: "og:description", content: "Deeply personal journeys through Finland. AI-matched, human-confirmed." },
+      { title: "Ursa — Luxury Finland Journeys for Discerning Travellers" },
+      { name: "description", content: "Ursa crafts deeply personal journeys through Finland — shaped by your taste, paced for your freedom, confirmed by specialists who know Finland like their own backyard." },
+      { property: "og:title", content: "Ursa — Luxury Finland Journeys for Discerning Travellers" },
+      { property: "og:description", content: "Ursa crafts deeply personal journeys through Finland — shaped by your taste, paced for your freedom, confirmed by specialists who know Finland like their own backyard." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        name: "Ursa Travel",
+        description: "AI-personalised luxury Finland journeys",
+        areaServed: "Finland",
+      }),
+    }],
   }),
   component: Landing,
 });
