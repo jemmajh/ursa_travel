@@ -38,7 +38,10 @@ function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
-        <a href="#top" className="font-display text-xl tracking-wider text-navy">URSA</a>
+        <a href="#top" className="flex items-center gap-2.5">
+          <img src={ursaLogo.url} alt="Ursa" className="h-7 w-auto" />
+          <span className="font-display text-xl tracking-wider text-navy">URSA</span>
+        </a>
         <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase text-navy/70">
           <a href="#places" className="hover:text-navy">Places</a>
           <a href="#how" className="hover:text-navy">Method</a>
