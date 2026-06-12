@@ -38,8 +38,7 @@ function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 leading-none">
-          <img src={outlinedLogo.url} alt="Ursa" className="h-10 w-auto block" />
+        <a href="#top" className="flex items-center leading-none">
           <span className="font-display text-2xl tracking-wider text-navy leading-none">URSA</span>
         </a>
         <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase text-navy/70">
@@ -102,7 +101,7 @@ function Places() {
         <div className="flex items-end justify-between mb-10 md:mb-14">
           <div>
             <div className="eyebrow mb-3">A small country, deeply</div>
-            <h2 className="font-display text-4xl md:text-5xl text-navy">Your Finland, <em className="italic">handled.</em></h2>
+            <h2 className="font-display text-4xl md:text-5xl text-navy">Your Finland, <em className="italic">personally.</em></h2>
           </div>
           <a href="#quiz" className="hidden md:inline text-[11px] tracking-[0.22em] uppercase text-navy/60 hover:text-navy">
             Build mine →
@@ -114,7 +113,7 @@ function Places() {
             <a
               key={i}
               href="#quiz"
-              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/5] md:aspect-square"} ${i === 0 ? "md:translate-y-10" : ""} ${i === 3 ? "md:-translate-y-10" : ""}`}
+              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/5] md:aspect-square"} ${i === 0 ? "md:translate-y-24" : ""} ${i === 3 ? "md:-translate-y-24" : ""}`}
             >
               <img
                 src={t.img}
@@ -276,7 +275,7 @@ function Feature() {
         <div className="max-w-xl">
           <div className="text-gold text-[11px] tracking-[0.3em] uppercase mb-5">A single promise</div>
           <p className="font-display italic text-white-bright text-3xl md:text-5xl leading-[1.15]">
-            "We send you home rested — not just photographed."
+            "Nobody else gets this trip."
           </p>
         </div>
       </div>
@@ -327,9 +326,9 @@ function Footer() {
   return (
     <footer className="bg-navy text-arctic/70 py-10">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
-        <div className="flex items-center gap-2.5 text-white-bright font-display text-lg tracking-wider">
-          <img src={outlinedLogo.url} alt="Ursa" className="h-7 w-auto invert brightness-200 opacity-90" />
-          URSA
+        <div className="flex flex-col items-center gap-1.5 text-white-bright font-display text-lg tracking-wider">
+          <img src={outlinedLogo.url} alt="Ursa" className="h-10 w-auto invert brightness-200 opacity-90" />
+          <span>URSA</span>
         </div>
         <div>© 2026 Ursa Travel · Finland, only Finland</div>
         <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
