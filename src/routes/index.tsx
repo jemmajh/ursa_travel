@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import outlinedLogo from "@/assets/outlined-logo-ursa.png.asset.json";
 import heroAurora from "@/assets/hero-aurora.jpg";
 import tileLakeland from "@/assets/tile-lakeland.jpg";
 import tileHelsinki from "@/assets/tile-helsinki.jpg";
@@ -90,7 +89,7 @@ const TILES: Tile[] = [
   { img: tileIgloo, eyebrow: "Lapland", title: "Sleep under aurora", tall: true },
   { img: tileHelsinki, eyebrow: "Helsinki", title: "Design city" },
   { img: tileArchipelago, eyebrow: "Archipelago", title: "Islands by ferry" },
-  { img: tileLakeland, eyebrow: "Saimaa", title: "Lake & cabin", tall: true },
+  { img: tileLakeland, eyebrow: "Saimaa", title: "Lake & cabin" },
   { img: tileSauna, eyebrow: "Ritual", title: "The Finnish sauna" },
 ];
 
@@ -113,7 +112,7 @@ function Places() {
             <a
               key={i}
               href="#quiz"
-              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/5] md:aspect-square"}`}
+              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 h-full" : "aspect-square"}`}
             >
               <img
                 src={t.img}
@@ -326,9 +325,9 @@ function Footer() {
   return (
     <footer className="bg-navy text-arctic/70 py-10">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
-        <div className="flex flex-col items-center gap-1.5 text-white-bright font-display text-lg tracking-wider">
-          <img src={outlinedLogo.url} alt="Ursa" className="h-10 w-auto invert brightness-200 opacity-90" />
-          <span>URSA</span>
+        <div className="flex flex-col items-center gap-1">
+          <span className="font-display text-lg tracking-wider text-white-bright">URSA</span>
+          <span className="text-gold text-xs tracking-wider">Finland Journeys</span>
         </div>
         <div>© 2026 Ursa Travel · Finland, only Finland</div>
         <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
