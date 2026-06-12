@@ -114,7 +114,7 @@ function Places() {
             <a
               key={i}
               href="#quiz"
-              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/5] md:aspect-square"}`}
+              className={`group relative block overflow-hidden ${t.tall ? "row-span-2 aspect-[3/4] md:aspect-[3/5]" : "aspect-[4/5] md:aspect-square"} ${i === 0 ? "md:translate-y-10" : ""} ${i === 3 ? "md:-translate-y-10" : ""}`}
             >
               <img
                 src={t.img}
