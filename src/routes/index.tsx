@@ -102,7 +102,7 @@ function Places() {
         <div className="flex items-end justify-between mb-10 md:mb-14">
           <div>
             <div className="eyebrow mb-3">A small country, deeply</div>
-            <h2 className="font-display text-4xl md:text-5xl text-navy">Finland, edited.</h2>
+            <h2 className="font-display text-4xl md:text-5xl text-navy">Your Finland, <em className="italic">handled.</em></h2>
           </div>
           <a href="#quiz" className="hidden md:inline text-[11px] tracking-[0.22em] uppercase text-navy/60 hover:text-navy">
             Build mine →
