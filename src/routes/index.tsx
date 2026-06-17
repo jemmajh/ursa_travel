@@ -37,8 +37,9 @@ function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
-        <a href="#top" className="flex items-center leading-none">
-          <span className="font-display text-2xl tracking-wider text-navy leading-none">URSA</span>
+        <a href="#top" className="inline-flex flex-col items-center leading-none text-2xl text-navy">
+          <span className="font-display font-normal uppercase tracking-widest leading-none">URSA</span>
+          <span className="font-display italic lowercase text-[0.48em] tracking-[0.25em] text-navy/70 leading-none">travel</span>
         </a>
         <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase text-navy/70">
           <a href="#places" className="hover:text-navy">Places</a>
@@ -250,13 +251,8 @@ function Quiz() {
               Fewer places. Longer stays. We'll send your draft route within 48 hours.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="https://calendly.com/jemma-ursa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-navy text-white-bright px-7 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors"
-              >
-                Book Your Finland Call
+              <a href="#waitlist" className="bg-navy text-white-bright px-7 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors">
+                Send Me My Draft
               </a>
               <button onClick={reset} className="px-7 py-3 text-[11px] tracking-[0.22em] uppercase text-navy/60 hover:text-navy">
                 Start over
@@ -292,19 +288,19 @@ function Waitlist() {
   const [sent, setSent] = useState(false);
   return (
     <section id="waitlist" className="bg-paper py-20 md:py-28">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 text-center">
         <div>
           <div className="eyebrow mb-5">Early Access</div>
           <h2 className="font-display text-4xl md:text-5xl text-navy">
             Your <em className="italic">Finland</em> is waiting
           </h2>
-          <p className="mt-6 text-navy/75 leading-relaxed max-w-md">
-            We are opening our first journeys to a select group of travellers. Leave your details — a Finland specialist will be in touch within 48 hours.
+          <p className="mt-6 text-navy/75 leading-relaxed max-w-md mx-auto">
+            We are opening our first journeys to a select group of travellers. A Finland specialist will be in touch within 48 hours.
           </p>
 
           {!sent ? (
             <form
-              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md"
+              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center"
               onSubmit={(e) => { e.preventDefault(); setSent(true); }}
             >
               <input
@@ -324,43 +320,6 @@ function Waitlist() {
           )}
 
           <p className="mt-5 text-navy/55 text-sm">No spam. No pressure. A personal note from our team.</p>
-          <div className="mt-10 flex items-center gap-4">
-            <span className="w-12 h-px bg-gold" />
-            <span className="text-[10px] tracking-[0.22em] uppercase text-navy/60">Presenting at Slush 2026 · Helsinki</span>
-          </div>
-        </div>
-
-        <div className="bg-navy text-white-bright p-10 md:p-12 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-25 pointer-events-none" style={{
-            backgroundImage: "radial-gradient(1px 1px at 20% 30%, #fff, transparent), radial-gradient(1.5px 1.5px at 80% 60%, #fff, transparent), radial-gradient(1px 1px at 50% 80%, #fff, transparent), radial-gradient(1px 1px at 70% 20%, #fff, transparent)",
-          }} />
-          <div className="relative">
-            <div className="flex items-center justify-between text-gold text-[10px] tracking-[0.22em] uppercase">
-              <span>Ursa · Finland Journey 2026</span>
-              <span className="text-gold">✦</span>
-            </div>
-            <div className="h-px bg-white-bright/15 my-6" />
-            <h3 className="font-display italic text-3xl md:text-4xl leading-tight">
-              Ten days through Finland
-            </h3>
-            <p className="mt-4 text-arctic">Helsinki — Archipelago — Lakeland — Lapland</p>
-
-            <div className="my-10 flex items-baseline gap-5">
-              <div className="font-display text-7xl md:text-8xl text-white-bright leading-none">10</div>
-              <div>
-                <div className="text-[10px] tracking-[0.22em] uppercase text-arctic">Days curated</div>
-                <div className="text-[10px] tracking-[0.22em] uppercase text-arctic">for you</div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {["Glass Igloo", "Aurora", "Private Guide", "Slow Travel", "Sauna", "Archipelago"].map(t => (
-                <span key={t} className="border border-gold/60 text-gold text-[10px] tracking-[0.18em] uppercase px-3 py-1 rounded-[2px]">{t}</span>
-              ))}
-            </div>
-
-            <div className="h-px bg-white-bright/15 my-8" />
-          </div>
         </div>
       </div>
     </section>
@@ -372,9 +331,9 @@ function Footer() {
   return (
     <footer className="bg-navy text-arctic/70 py-10">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
-        <div className="flex flex-col items-center gap-1">
-          <span className="font-display text-lg tracking-wider text-white-bright">URSA</span>
-          <span className="text-gold text-xs tracking-wider">Finland Journeys</span>
+        <div className="inline-flex flex-col items-center leading-none text-2xl text-white-bright">
+          <span className="font-display font-normal uppercase tracking-widest leading-none">URSA</span>
+          <span className="font-display italic lowercase text-[0.48em] tracking-[0.25em] text-white-bright/70 leading-none">travel</span>
         </div>
         <div>© 2026 Ursa Travel · Espoo, Finland · Serving travellers from across the United States.</div>
         <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
