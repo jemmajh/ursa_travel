@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroAurora from "@/assets/hero-aurora.jpg";
+import helsinkiDusk from "@/assets/helsinki-dusk.jpg";
 import tileLakeland from "@/assets/tile-lakeland.jpg";
 import tileHelsinki from "@/assets/tile-helsinki.jpg";
 import tileArchipelago from "@/assets/tile-archipelago.jpg";
@@ -36,17 +37,17 @@ export const Route = createFileRoute("/")({
 function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
-        <a href="#top" className="inline-flex flex-col items-center leading-none text-2xl text-navy">
-          <span className="font-display font-normal uppercase tracking-widest leading-none">URSA</span>
-          <span className="font-display italic lowercase text-[0.48em] tracking-[0.25em] text-navy/70 leading-none">travel</span>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+        <a href="#top" className="inline-flex flex-col items-center leading-none text-navy">
+          <span className="font-display font-normal uppercase tracking-widest text-3xl leading-none">URSA</span>
+          <span className="font-display italic lowercase text-sm tracking-[0.25em] text-navy/70 leading-none">travel</span>
         </a>
-        <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase text-navy/70">
+        <div className="hidden md:flex items-center gap-10 text-[15px] tracking-[0.24em] uppercase text-navy">
           <a href="#places" className="hover:text-navy">Places</a>
           <a href="#how" className="hover:text-navy">Method</a>
           <a href="#quiz" className="hover:text-navy">Your Profile</a>
         </div>
-        <a href="#waitlist" className="text-[11px] tracking-[0.2em] uppercase text-navy border-b border-gold pb-0.5 hover:text-gold">
+        <a href="#waitlist" className="text-[15px] tracking-[0.24em] uppercase text-navy border-b border-gold pb-0.5 hover:text-gold">
           Request Access
         </a>
       </div>
@@ -55,19 +56,36 @@ function Nav() {
 }
 
 /* ---------- HERO ---------- */
+const HERO_IMAGES = [
+  { src: heroAurora, alt: "Aurora over Finnish Lapland" },
+  { src: tileLakeland, alt: "Finnish lakeland in summer" },
+];
+
 function Hero() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden">
-      <img
-        src={heroAurora}
-        alt="Aurora over Finnish Lapland"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {HERO_IMAGES.map((img, i) => (
+        <img
+          key={i}
+          src={img.src}
+          alt={img.alt}
+          width={1920}
+          height={1080}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${i === active ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
       <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/10 to-navy/70" />
       <div className="relative h-full max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col justify-end pb-20 md:pb-28">
-        <div className="text-gold text-[11px] tracking-[0.3em] uppercase mb-6">Finland · Only Finland</div>
+        <div className="text-[#A08C4A] text-base font-medium tracking-[0.22em] uppercase mb-6 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">Finland · Only Finland</div>
         <h1 className="font-display text-white-bright text-5xl md:text-7xl lg:text-8xl leading-[1.02] max-w-4xl">
           The north,<br/><em className="italic font-display">your way.</em>
         </h1>
@@ -79,6 +97,14 @@ function Hero() {
             See Finland ↓
           </a>
         </div>
+      </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        {HERO_IMAGES.map((_, i) => (
+          <span
+            key={i}
+            className={`w-2 h-2 rounded-full ${i === active ? "bg-white-bright" : "bg-white-bright/40"}`}
+          />
+        ))}
       </div>
     </section>
   );
@@ -123,8 +149,8 @@ function Places() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/0 to-navy/0" />
               <div className="absolute left-4 right-4 bottom-4 md:left-6 md:bottom-6 text-white-bright">
-                <div className="text-gold text-[10px] tracking-[0.25em] uppercase mb-1.5">{t.eyebrow}</div>
-                <div className="font-display text-xl md:text-2xl leading-tight">{t.title}</div>
+                <div className="text-white-bright text-[13px] tracking-[0.25em] uppercase mb-1.5">{t.eyebrow}</div>
+                <div className="font-display text-2xl leading-tight">{t.title}</div>
               </div>
             </a>
           ))}
@@ -151,9 +177,9 @@ function Method() {
         <div className="mt-14 grid md:grid-cols-3 gap-px bg-white-bright/10">
           {steps.map((s) => (
             <div key={s.n} className="bg-navy p-8 md:p-10">
-              <div className="text-gold font-display italic text-3xl mb-6">{s.n}</div>
-              <div className="font-display text-2xl mb-3">{s.title}</div>
-              <div className="text-arctic/90 text-sm leading-relaxed">{s.body}</div>
+              <div className="text-gold font-display italic text-5xl mb-6">{s.n}</div>
+              <div className="font-display text-4xl mb-3">{s.title}</div>
+              <div className="text-arctic/90 text-lg leading-relaxed">{s.body}</div>
             </div>
           ))}
         </div>
@@ -191,6 +217,66 @@ const QUIZ: { q: string; options: QOption[] }[] = [
   ]},
 ];
 
+const getProfile = (answers: number[]) => {
+  const [morning, motivation, companions, season] = answers;
+
+  if (season === 0 && morning === 0) return {
+    name: "The Aurora Seeker",
+    tagline: "You came for the lights. You'll stay for the silence.",
+    description: "A Lapland winter journey built around the northern lights, with glass igloo nights, Sámi culture, and long still mornings in the wilderness. This is the Finland most people only dream about.",
+    tags: ["Glass Igloo", "Northern Lights", "Lapland", "Winter", "Private Guide"],
+  };
+
+  if (companions === 1 && motivation === 1) return {
+    name: "The Heritage Pilgrim",
+    tagline: "For some travellers, Finland is not just a destination. It is a homecoming.",
+    description: "A journey shaped around Finnish roots, the regions your family came from, the traditions that survived the journey to America, and the people who kept them alive. We'll help you find the places that matter.",
+    tags: ["Heritage", "Family", "Culture", "Roots Journey", "Helsinki"],
+  };
+
+  if (season === 2 && (morning === 3 || motivation === 3)) return {
+    name: "The Island Drifter",
+    tagline: "No fixed agenda. Just water, islands, and time.",
+    description: "A summer archipelago journey with overnight ferries, private island stays, harbour cafés, and the kind of afternoon where nobody asks what time it is. The Turku archipelago and Åland await.",
+    tags: ["Archipelago", "Summer", "Midnight Sun", "Slow Travel", "Island Ferry"],
+  };
+
+  if (motivation === 1 && (season === 1 || season === 3)) return {
+    name: "The Culture Wanderer",
+    tagline: "You travel to understand, not just to see.",
+    description: "Helsinki's design and architecture, the Savonlinna Opera Festival, ruska autumn walks. Finland has cultural depth that most visitors never find. We'll build you a journey with local guides who actually know it.",
+    tags: ["Culture", "Helsinki", "Opera Festival", "Autumn", "Local Guides"],
+  };
+
+  if (motivation === 2) return {
+    name: "The Considered Traveller",
+    tagline: "Every detail handled. Every moment yours.",
+    description: "You know what good travel feels like, and you know the difference between a hotel that is merely expensive and one that is genuinely right. We handle everything so you arrive relaxed and stay that way.",
+    tags: ["Luxury", "Pre-arranged", "Boutique Hotels", "Private Transfers", "No Surprises"],
+  };
+
+  if (companions === 2) return {
+    name: "The Independent North",
+    tagline: "Your pace. Your Finland. Nobody else's itinerary.",
+    description: "Solo travel in Finland is remarkable. The country is safe, English is universal, and Finns respect your space. We'll build you a journey with enough structure to feel secure and enough freedom to feel alive.",
+    tags: ["Solo", "Freedom", "Safe", "Flexible", "Self-guided"],
+  };
+
+  if (season === 2 && morning === 1) return {
+    name: "The Summer Dreamer",
+    tagline: "Midnight sun. Birch and water. Nowhere to be.",
+    description: "A Finnish Lakeland summer with a private cottage on Saimaa, wood-fired sauna, foraging walks, and evenings that never quite turn to night. This is slow travel at its most complete.",
+    tags: ["Lakeland", "Saimaa", "Midnight Sun", "Sauna", "Cottage"],
+  };
+
+  return {
+    name: "The Quiet North Traveller",
+    tagline: "Fewer places. Longer stays. Finland at the pace it deserves.",
+    description: "You are not here to tick boxes. You want to actually feel a place, to know a city's rhythms, to sit with a landscape long enough for it to give something back. We build journeys for exactly this kind of traveller.",
+    tags: ["Slow Travel", "Depth", "Unhurried", "Boutique", "Personal"],
+  };
+};
+
 function Quiz() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -205,6 +291,7 @@ function Quiz() {
     }, 220);
   };
   const reset = () => { setStep(0); setAnswers([]); setDone(false); };
+  const profile = getProfile(answers);
 
   return (
     <section id="quiz" className="bg-paper py-20 md:py-28 border-t border-arctic/40">
@@ -220,17 +307,17 @@ function Quiz() {
               {step + 1} / {QUIZ.length}
             </div>
             <h3 className="font-display text-3xl md:text-4xl text-navy">{QUIZ[step].q}</h3>
-            <div className="mt-10 grid grid-cols-2 gap-3 md:gap-4">
+            <div className="mt-10 grid grid-cols-2 gap-4">
               {QUIZ[step].options.map((o, i) => {
                 const active = selected === i;
                 return (
                   <button
                     key={i}
                     onClick={() => choose(i)}
-                    className={`p-6 md:p-8 border bg-white-bright transition-all text-center ${active ? "border-navy border-2" : "border-arctic/60 hover:border-navy/60"}`}
+                    className={`h-48 flex flex-col items-center justify-center border bg-white-bright transition-all text-center ${active ? "border-navy border-2" : "border-arctic/60 hover:border-navy/60"}`}
                   >
-                    <div className="text-3xl mb-3">{o.emoji}</div>
-                    <div className="font-display text-lg text-navy">{o.title}</div>
+                    <div className="text-5xl mb-4">{o.emoji}</div>
+                    <div className="font-display text-2xl text-navy">{o.title}</div>
                   </button>
                 );
               })}
@@ -245,14 +332,29 @@ function Quiz() {
           <div className="mt-14 border border-arctic/60 p-10 md:p-14 bg-white-bright">
             <div className="eyebrow mb-4">Your Profile</div>
             <h3 className="font-display text-3xl md:text-4xl text-navy">
-              The <em className="italic">Quiet North</em> traveller
+              {profile.name}
             </h3>
-            <p className="mt-5 text-navy/70 leading-relaxed">
-              Fewer places. Longer stays. We'll send your draft route within 48 hours.
+            <p className="mt-3 text-gold italic font-display text-lg">
+              {profile.tagline}
             </p>
+            <p className="mt-4 text-navy/70 leading-relaxed">
+              {profile.description}
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {profile.tags.map((tag) => (
+                <span key={tag} className="border border-arctic/60 text-navy/60 px-3 py-1 text-[11px] tracking-[0.15em] uppercase">
+                  {tag}
+                </span>
+              ))}
+            </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a href="#waitlist" className="bg-navy text-white-bright px-7 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors">
-                Send Me My Draft
+              <a
+                href="https://calendly.com/jemma-ursa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-navy text-white-bright px-7 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors"
+              >
+                Book Your Finland Call
               </a>
               <button onClick={reset} className="px-7 py-3 text-[11px] tracking-[0.22em] uppercase text-navy/60 hover:text-navy">
                 Start over
@@ -269,11 +371,11 @@ function Quiz() {
 function Feature() {
   return (
     <section className="relative h-[70vh] min-h-[480px] overflow-hidden">
-      <img src={tileLakeland} alt="Finnish lakeland at twilight" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={helsinkiDusk} alt="Finnish lakeland at twilight" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-navy/40" />
-      <div className="relative h-full max-w-[1400px] mx-auto px-6 md:px-10 flex items-center">
-        <div className="max-w-xl">
-          <div className="text-gold text-[11px] tracking-[0.3em] uppercase mb-5">A single promise</div>
+      <div className="relative h-full max-w-[1400px] mx-auto px-6 md:px-10 flex items-start justify-start">
+        <div className="max-w-xl" style={{ paddingTop: '12%' }}>
+          <div className="text-[#A08C4A] text-[13px] tracking-[0.3em] uppercase mb-5">A single promise</div>
           <p className="font-display italic text-white-bright text-3xl md:text-5xl leading-[1.15]">
             "Nobody else gets this trip."
           </p>
@@ -294,20 +396,22 @@ function Waitlist() {
           <h2 className="font-display text-4xl md:text-5xl text-navy">
             Your <em className="italic">Finland</em> is waiting
           </h2>
-          <p className="mt-6 text-navy/75 leading-relaxed max-w-md mx-auto">
-            We are opening our first journeys to a select group of travellers. A Finland specialist will be in touch within 48 hours.
+          <p className="mt-6 text-navy/75 text-lg leading-relaxed max-w-md mx-auto">
+            We are opening our first journeys to a select group of travellers.
+            <br />
+            A Finland specialist will be in touch within 48 hours.
           </p>
 
           {!sent ? (
             <form
-              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center"
+              className="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto justify-center"
               onSubmit={(e) => { e.preventDefault(); setSent(true); }}
             >
               <input
                 type="email"
                 required
                 placeholder="you@email.com"
-                className="flex-1 bg-white-bright border border-arctic/60 px-4 py-3.5 text-sm text-navy placeholder:text-navy/40 focus:outline-none focus:border-navy"
+                className="w-full max-w-sm flex-[2] min-w-0 bg-white-bright border border-arctic/60 px-4 py-3.5 text-sm text-navy placeholder:text-navy/40 focus:outline-none focus:border-navy"
               />
               <button className="bg-navy text-white-bright px-7 py-3.5 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors">
                 Request Access
@@ -319,7 +423,6 @@ function Waitlist() {
             </div>
           )}
 
-          <p className="mt-5 text-navy/55 text-sm">No spam. No pressure. A personal note from our team.</p>
         </div>
       </div>
     </section>
@@ -335,7 +438,10 @@ function Footer() {
           <span className="font-display font-normal uppercase tracking-widest leading-none">URSA</span>
           <span className="font-display italic lowercase text-[0.48em] tracking-[0.25em] text-white-bright/70 leading-none">travel</span>
         </div>
-        <div>© 2026 Ursa Travel · Espoo, Finland · Serving travellers from across the United States.</div>
+        <div className="flex flex-col items-center text-center">
+          <span>© 2026 Ursa Travel</span>
+          <span>Espoo, Finland · Serving travellers from across the United States.</span>
+        </div>
         <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
       </div>
     </footer>
