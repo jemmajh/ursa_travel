@@ -405,10 +405,22 @@ function Waitlist() {
           {!sent ? (
             <form
               className="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto justify-center"
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={async (e) => {
+                e.preventDefault()
+                const form = e.target as HTMLFormElement
+                const response = await fetch("https://formspree.io/f/mrevvpgn", {
+                  method: "POST",
+                  body: new FormData(form),
+                  headers: { Accept: "application/json" }
+                })
+                if (response.ok) {
+                  setSent(true)
+                }
+              }}
             >
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="you@email.com"
                 className="w-full max-w-sm flex-[2] min-w-0 bg-white-bright border border-arctic/60 px-4 py-3.5 text-sm text-navy placeholder:text-navy/40 focus:outline-none focus:border-navy"
