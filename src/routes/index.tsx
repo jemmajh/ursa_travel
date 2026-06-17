@@ -310,7 +310,12 @@ function Quiz() {
         source: "quiz"
       })
     })
-    window.open("https://calendly.com/jemma-ursa", "_blank")
+
+    const notes = `Profile: ${profile.name} | Morning: ${QUIZ[0].options[answers[0]]?.title} | Travel for: ${QUIZ[1].options[answers[1]]?.title} | With: ${QUIZ[2].options[answers[2]]?.title} | Season: ${QUIZ[3].options[answers[3]]?.title}`
+
+    const calendlyUrl = `https://calendly.com/jemma-ursa?a1=${encodeURIComponent(notes)}`
+
+    window.open(calendlyUrl, "_blank")
   }
 
   return (
