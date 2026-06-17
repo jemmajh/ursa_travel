@@ -293,6 +293,26 @@ function Quiz() {
   const reset = () => { setStep(0); setAnswers([]); setDone(false); };
   const profile = getProfile(answers);
 
+  const handleBookCall = async () => {
+    await fetch("https://formspree.io/f/xwvjjlpd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        profile_name: profile.name,
+        profile_tagline: profile.tagline,
+        answer_morning: QUIZ[0].options[answers[0]]?.title ?? "",
+        answer_motivation: QUIZ[1].options[answers[1]]?.title ?? "",
+        answer_companions: QUIZ[2].options[answers[2]]?.title ?? "",
+        answer_season: QUIZ[3].options[answers[3]]?.title ?? "",
+        source: "quiz"
+      })
+    })
+    window.open("https://calendly.com/jemma-ursa", "_blank")
+  }
+
   return (
     <section id="quiz" className="bg-paper py-20 md:py-28 border-t border-arctic/40">
       <div className="max-w-3xl mx-auto px-6 text-center">
@@ -348,14 +368,13 @@ function Quiz() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="https://calendly.com/jemma-ursa"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={handleBookCall}
                 className="bg-navy text-white-bright px-7 py-3 text-[11px] tracking-[0.22em] uppercase hover:bg-gold hover:text-navy transition-colors"
               >
                 Book Your Finland Call
-              </a>
+              </button>
               <button onClick={reset} className="px-7 py-3 text-[11px] tracking-[0.22em] uppercase text-navy/60 hover:text-navy">
                 Start over
               </button>
