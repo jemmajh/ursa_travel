@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 });
 
 /* ---------- NAV ---------- */
-function Nav() {
+export function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
@@ -315,7 +315,7 @@ function Quiz() {
 
     const calendlyUrl = `https://calendly.com/jemma-ursa?a1=${encodeURIComponent(notes)}`
 
-    window.open(calendlyUrl, "_blank")
+    window.location.href = calendlyUrl
   }
 
   return (
@@ -466,7 +466,7 @@ function Waitlist() {
 }
 
 /* ---------- FOOTER ---------- */
-function Footer() {
+export function Footer() {
   return (
     <footer className="bg-navy text-arctic/70 py-10">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
@@ -478,7 +478,7 @@ function Footer() {
           <span>© 2026 Ursa Travel</span>
           <span>Espoo, Finland · Serving travellers from across the United States.</span>
         </div>
-        <div className="flex gap-6"><a href="#" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
+        <div className="flex gap-6"><a href="/privacy" className="hover:text-gold">Privacy</a><a href="#" className="hover:text-gold">Contact</a></div>
       </div>
     </footer>
   );
