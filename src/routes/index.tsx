@@ -32,43 +32,22 @@ export const Route = createFileRoute("/")({
   }),
   component: Landing,
 });
-// Update the Nav component for cross-page navigation
-export function Nav() {
-  return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        <a href="/" className="inline-flex flex-col items-center leading-none text-navy">
-          <span className="font-display font-normal uppercase tracking-widest text-3xl leading-none">URSA</span>
-          <span className="font-display italic lowercase text-sm tracking-[0.25em] text-navy/70 leading-none">travel</span>
-        </a>
-        <div className="hidden md:flex items-center gap-10 text-[15px] tracking-[0.24em] uppercase text-navy">
-          <a href="/#places" className="hover:text-navy">Places</a>
-          <a href="/#how" className="hover:text-navy">Method</a>
-          <a href="/#quiz" className="hover:text-navy">Your Profile</a>
-        </div>
-        <a href="/#waitlist" className="text-[15px] tracking-[0.24em] uppercase text-navy border-b border-gold pb-0.5 hover:text-gold">
-          Request Access
-        </a>
-      </div>
-    </nav>
-  );
-}
 
 /* ---------- NAV ---------- */
 export function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b border-arctic/40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        <a href="#top" className="inline-flex flex-col items-center leading-none text-navy">
+      <a href="/" className="inline-flex flex-col items-center leading-none text-navy">
           <span className="font-display font-normal uppercase tracking-widest text-3xl leading-none">URSA</span>
           <span className="font-display italic lowercase text-sm tracking-[0.25em] text-navy/70 leading-none">travel</span>
         </a>
         <div className="hidden md:flex items-center gap-10 text-[15px] tracking-[0.24em] uppercase text-navy">
-          <a href="#places" className="hover:text-navy">Places</a>
-          <a href="#how" className="hover:text-navy">Method</a>
-          <a href="#quiz" className="hover:text-navy">Your Profile</a>
+        <a href="/#places" className="hover:text-navy">Places</a>
+          <a href="/#how" className="hover:text-navy">Method</a>
+          <a href="/#quiz" className="hover:text-navy">Your Profile</a>
         </div>
-        <a href="#waitlist" className="text-[15px] tracking-[0.24em] uppercase text-navy border-b border-gold pb-0.5 hover:text-gold">
+        <a href="/#waitlist" className="text-[15px] tracking-[0.24em] uppercase text-navy border-b border-gold pb-0.5 hover:text-gold">
           Request Access
         </a>
       </div>
