@@ -13,13 +13,6 @@ function Subheading({ children }: { children: ReactNode }) {
   return <h3 className="font-display text-xl text-navy mt-6">{children}</h3>;
 }
 
-function EmailLink() {
-  return (
-    <a href="mailto:hello@ursa.travel" className="text-knox hover:underline">
-      hello@ursa.travel
-    </a>
-  );
-}
 
 export function PrivacyPolicyBody() {
   return (
@@ -36,7 +29,7 @@ export function PrivacyPolicyBody() {
           <li>Engage with us in other related ways, including any marketing or events</li>
         </ul>
         <p>
-          Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <EmailLink />.
+          Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>.
         </p>
       </section>
 
@@ -57,19 +50,45 @@ export function PrivacyPolicyBody() {
 
       <PolicySection title="TABLE OF CONTENTS">
         <ol className="list-none pl-0 space-y-2 text-base">
-          <li><a href="#section-1" className="text-knox hover:underline">1. WHAT INFORMATION DO WE COLLECT?</a></li>
-          <li><a href="#section-2" className="text-knox hover:underline">2. HOW DO WE PROCESS YOUR INFORMATION?</a></li>
-          <li><a href="#section-3" className="text-knox hover:underline">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a></li>
-          <li><a href="#section-4" className="text-knox hover:underline">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></li>
-          <li><a href="#section-5" className="text-knox hover:underline">5. HOW LONG DO WE KEEP YOUR INFORMATION?</a></li>
-          <li><a href="#section-6" className="text-knox hover:underline">6. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></li>
-          <li><a href="#section-7" className="text-knox hover:underline">7. DO WE COLLECT INFORMATION FROM MINORS?</a></li>
-          <li><a href="#section-8" className="text-knox hover:underline">8. WHAT ARE YOUR PRIVACY RIGHTS?</a></li>
-          <li><a href="#section-9" className="text-knox hover:underline">9. CONTROLS FOR DO-NOT-TRACK FEATURES</a></li>
-          <li><a href="#section-10" className="text-knox hover:underline">10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
-          <li><a href="#section-11" className="text-knox hover:underline">11. DO WE MAKE UPDATES TO THIS NOTICE?</a></li>
-          <li><a href="#section-12" className="text-knox hover:underline">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></li>
-          <li><a href="#section-13" className="text-knox hover:underline">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></li>
+          <li>
+            <a href="#section-1" className="text-[#A08C4A] hover:underline block mb-1">1. WHAT INFORMATION DO WE COLLECT?</a>
+          </li>
+          <li>
+            <a href="#section-2" className="text-[#A08C4A] hover:underline block mb-1">2. HOW DO WE PROCESS YOUR INFORMATION?</a>
+          </li>
+          <li>
+            <a href="#section-3" className="text-[#A08C4A] hover:underline block mb-1">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a>
+          </li>
+          <li>
+            <a href="#section-4" className="text-[#A08C4A] hover:underline block mb-1">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a>
+          </li>
+          <li>
+            <a href="#section-5" className="text-[#A08C4A] hover:underline block mb-1">5. HOW LONG DO WE KEEP YOUR INFORMATION?</a>
+          </li>
+          <li>
+            <a href="#section-6" className="text-[#A08C4A] hover:underline block mb-1">6. HOW DO WE KEEP YOUR INFORMATION SAFE?</a>
+          </li>
+          <li>
+            <a href="#section-7" className="text-[#A08C4A] hover:underline block mb-1">7. DO WE COLLECT INFORMATION FROM MINORS?</a>
+          </li>
+          <li>
+            <a href="#section-8" className="text-[#A08C4A] hover:underline block mb-1">8. WHAT ARE YOUR PRIVACY RIGHTS?</a>
+          </li>
+          <li>
+            <a href="#section-9" className="text-[#A08C4A] hover:underline block mb-1">9. CONTROLS FOR DO-NOT-TRACK FEATURES</a>
+          </li>
+          <li>
+            <a href="#section-10" className="text-[#A08C4A] hover:underline block mb-1">10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</a>
+          </li>
+          <li>
+            <a href="#section-11" className="text-[#A08C4A] hover:underline block mb-1">11. DO WE MAKE UPDATES TO THIS NOTICE?</a>
+          </li>
+          <li>
+            <a href="#section-12" className="text-[#A08C4A] hover:underline block mb-1">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a>
+          </li>
+          <li>
+            <a href="#section-13" className="text-[#A08C4A] hover:underline block mb-1">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a>
+          </li>
         </ol>
       </PolicySection>
 
@@ -106,7 +125,7 @@ export function PrivacyPolicyBody() {
         </ul>
       </PolicySection>
 
-      <PolicySection id="section-3" title="3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?">
+      <PolicySection id="section-3" title="3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?">
         <p>
           <strong>In Short:</strong> We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e. legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfil our contractual obligations, to protect your rights, or to fulfil our legitimate business interests.
         </p>
@@ -181,7 +200,7 @@ export function PrivacyPolicyBody() {
       <PolicySection id="section-7" title="7. DO WE COLLECT INFORMATION FROM MINORS?">
         <p><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction.</p>
         <p>
-          We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at <EmailLink />.
+          We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>.
         </p>
       </PolicySection>
 
@@ -202,7 +221,7 @@ export function PrivacyPolicyBody() {
         <p>
           <strong>Opting out of marketing and promotional communications:</strong> You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details provided in the section &apos;HOW CAN YOU CONTACT US ABOUT THIS NOTICE?&apos; below. You will then be removed from the marketing lists. However, we may still communicate with you, for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.
         </p>
-        <p>If you have questions or comments about your privacy rights, you may email us at <EmailLink />.</p>
+        <p>If you have questions or comments about your privacy rights, you may email us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>.</p>
       </PolicySection>
 
       <PolicySection id="section-9" title="9. CONTROLS FOR DO-NOT-TRACK FEATURES">
@@ -300,7 +319,7 @@ export function PrivacyPolicyBody() {
         </ul>
         <Subheading>How to Exercise Your Rights</Subheading>
         <p>
-          To exercise these rights, you can contact us by visiting https://ursa.travel/contact, by emailing us at <EmailLink />, by visiting ursa.travel/contact, or by referring to the contact details at the bottom of this document.
+          To exercise these rights, you can contact us by visiting https://ursa.travel/contact, by emailing us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>, by visiting ursa.travel/contact, or by referring to the contact details at the bottom of this document.
         </p>
         <p>
           Under certain US state data protection laws, you can designate an authorised agent to make a request on your behalf. We may deny a request from an authorised agent that does not submit proof that they have been validly authorised to act on your behalf in accordance with applicable laws.
@@ -314,7 +333,7 @@ export function PrivacyPolicyBody() {
         </p>
         <Subheading>Appeals</Subheading>
         <p>
-          Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <EmailLink />. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
+          Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
         </p>
         <Subheading>California &apos;Shine The Light&apos; Law</Subheading>
         <p>
@@ -330,7 +349,7 @@ export function PrivacyPolicyBody() {
       </PolicySection>
 
       <PolicySection id="section-12" title="12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?">
-        <p>If you have questions or comments about this notice, you may email us at <EmailLink /> or contact us by post at:</p>
+        <p>If you have questions or comments about this notice, you may email us at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a> or contact us by post at:</p>
         <p>
           Ursa Travel LLC<br />
           931 Richvale<br />
@@ -338,7 +357,7 @@ export function PrivacyPolicyBody() {
           United States
         </p>
         <p>
-          If you are a resident in the European Economic Area, we are the &apos;data controller&apos; of your personal information. We have appointed Ursa Travel to be our representative in the EEA. You can contact them directly regarding our processing of your information, by email at <EmailLink />, or by post to:
+          If you are a resident in the European Economic Area, we are the &apos;data controller&apos; of your personal information. We have appointed Ursa Travel to be our representative in the EEA. You can contact them directly regarding our processing of your information, by email at <a href="mailto:hello@ursa.travel" className="text-[#A08C4A] hover:underline">hello@ursa.travel</a>, or by post to:
         </p>
         <p>
           Espoo, Uusimaa<br />
