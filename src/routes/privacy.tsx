@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav, Footer } from "./index";
+import { Nav, Footer } from "@/components/site-chrome";
 import { PrivacyPolicyBody } from "./privacy-policy-body";
 
 export const Route = createFileRoute("/privacy")({
