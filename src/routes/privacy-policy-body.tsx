@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
-function PolicySection({ title, children }: { title: string; children: ReactNode }) {
+function PolicySection({ title, children, id }: { title: string; children: ReactNode; id?: string }) {
   return (
     <section className="mt-10">
-      <h2 className="font-display text-2xl text-navy">{title}</h2>
+      <h2 id={id} className="font-display text-2xl text-navy">{title}</h2>
       <div className="mt-4 space-y-4 text-base leading-relaxed text-navy/75">{children}</div>
     </section>
   );
@@ -11,6 +11,14 @@ function PolicySection({ title, children }: { title: string; children: ReactNode
 
 function Subheading({ children }: { children: ReactNode }) {
   return <h3 className="font-display text-xl text-navy mt-6">{children}</h3>;
+}
+
+function EmailLink() {
+  return (
+    <a href="mailto:hello@ursa.travel" className="text-knox hover:underline">
+      hello@ursa.travel
+    </a>
+  );
 }
 
 export function PrivacyPolicyBody() {
@@ -28,7 +36,7 @@ export function PrivacyPolicyBody() {
           <li>Engage with us in other related ways, including any marketing or events</li>
         </ul>
         <p>
-          Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at hello@ursa.travel.
+          Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <EmailLink />.
         </p>
       </section>
 
@@ -48,24 +56,24 @@ export function PrivacyPolicyBody() {
       </PolicySection>
 
       <PolicySection title="TABLE OF CONTENTS">
-        <ol className="list-decimal pl-6 space-y-1">
-          <li>WHAT INFORMATION DO WE COLLECT?</li>
-          <li>HOW DO WE PROCESS YOUR INFORMATION?</li>
-          <li>WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</li>
-          <li>WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</li>
-          <li>HOW LONG DO WE KEEP YOUR INFORMATION?</li>
-          <li>HOW DO WE KEEP YOUR INFORMATION SAFE?</li>
-          <li>DO WE COLLECT INFORMATION FROM MINORS?</li>
-          <li>WHAT ARE YOUR PRIVACY RIGHTS?</li>
-          <li>CONTROLS FOR DO-NOT-TRACK FEATURES</li>
-          <li>DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</li>
-          <li>DO WE MAKE UPDATES TO THIS NOTICE?</li>
-          <li>HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</li>
-          <li>HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</li>
+        <ol className="list-none pl-0 space-y-2 text-base">
+          <li><a href="#section-1" className="text-knox hover:underline">1. WHAT INFORMATION DO WE COLLECT?</a></li>
+          <li><a href="#section-2" className="text-knox hover:underline">2. HOW DO WE PROCESS YOUR INFORMATION?</a></li>
+          <li><a href="#section-3" className="text-knox hover:underline">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a></li>
+          <li><a href="#section-4" className="text-knox hover:underline">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></li>
+          <li><a href="#section-5" className="text-knox hover:underline">5. HOW LONG DO WE KEEP YOUR INFORMATION?</a></li>
+          <li><a href="#section-6" className="text-knox hover:underline">6. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></li>
+          <li><a href="#section-7" className="text-knox hover:underline">7. DO WE COLLECT INFORMATION FROM MINORS?</a></li>
+          <li><a href="#section-8" className="text-knox hover:underline">8. WHAT ARE YOUR PRIVACY RIGHTS?</a></li>
+          <li><a href="#section-9" className="text-knox hover:underline">9. CONTROLS FOR DO-NOT-TRACK FEATURES</a></li>
+          <li><a href="#section-10" className="text-knox hover:underline">10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</a></li>
+          <li><a href="#section-11" className="text-knox hover:underline">11. DO WE MAKE UPDATES TO THIS NOTICE?</a></li>
+          <li><a href="#section-12" className="text-knox hover:underline">12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></li>
+          <li><a href="#section-13" className="text-knox hover:underline">13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></li>
         </ol>
       </PolicySection>
 
-      <PolicySection title="1. WHAT INFORMATION DO WE COLLECT?">
+      <PolicySection id="section-1" title="1. WHAT INFORMATION DO WE COLLECT?">
         <Subheading>Personal information you disclose to us</Subheading>
         <p><strong>In Short:</strong> We collect personal information that you provide to us.</p>
         <p>
@@ -85,7 +93,7 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="2. HOW DO WE PROCESS YOUR INFORMATION?">
+      <PolicySection id="section-2" title="2. HOW DO WE PROCESS YOUR INFORMATION?">
         <p>
           <strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We process the personal information for the following purposes listed below. We may also process your information for other purposes only with your prior explicit consent.
         </p>
@@ -98,7 +106,7 @@ export function PrivacyPolicyBody() {
         </ul>
       </PolicySection>
 
-      <PolicySection title="3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?">
+      <PolicySection id="section-3" title="3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?">
         <p>
           <strong>In Short:</strong> We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e. legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfil our contractual obligations, to protect your rights, or to fulfil our legitimate business interests.
         </p>
@@ -136,7 +144,7 @@ export function PrivacyPolicyBody() {
         <p>We may disclose de-identified information for approved research or statistics projects, subject to ethics oversight and confidentiality commitments</p>
       </PolicySection>
 
-      <PolicySection title="4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?">
+      <PolicySection id="section-4" title="4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?">
         <p><strong>In Short:</strong> We may share information in specific situations described in this section and/or with the following third parties.</p>
         <p>
           <strong>Vendors, Consultants, and Other Third-Party Service Providers.</strong> We may share your data with third-party vendors, service providers, contractors, or agents (&apos;third parties&apos;) who perform services for us or on our behalf and require access to such information to do that work. We have contracts in place with our third parties, which are designed to help safeguard your personal information. This means that they cannot do anything with your personal information unless we have instructed them to do it. They will also not share your personal information with any organisation apart from us. They also commit to protect the data they hold on our behalf and to retain it for the period we instruct.
@@ -153,7 +161,7 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="5. HOW LONG DO WE KEEP YOUR INFORMATION?">
+      <PolicySection id="section-5" title="5. HOW LONG DO WE KEEP YOUR INFORMATION?">
         <p><strong>In Short:</strong> We keep your information for as long as necessary to fulfil the purposes outlined in this Privacy Notice unless otherwise required by law.</p>
         <p>
           We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than 2 years.
@@ -163,21 +171,21 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="6. HOW DO WE KEEP YOUR INFORMATION SAFE?">
+      <PolicySection id="section-6" title="6. HOW DO WE KEEP YOUR INFORMATION SAFE?">
         <p><strong>In Short:</strong> We aim to protect your personal information through a system of organisational and technical security measures.</p>
         <p>
           We have implemented appropriate and reasonable technical and organisational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.
         </p>
       </PolicySection>
 
-      <PolicySection title="7. DO WE COLLECT INFORMATION FROM MINORS?">
+      <PolicySection id="section-7" title="7. DO WE COLLECT INFORMATION FROM MINORS?">
         <p><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction.</p>
         <p>
-          We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at hello@ursa.travel.
+          We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent&apos;s use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at <EmailLink />.
         </p>
       </PolicySection>
 
-      <PolicySection title="8. WHAT ARE YOUR PRIVACY RIGHTS?">
+      <PolicySection id="section-8" title="8. WHAT ARE YOUR PRIVACY RIGHTS?">
         <p><strong>In Short:</strong> Depending on your state of residence in the US or in some regions, such as the European Economic Area (EEA), United Kingdom (UK), Switzerland, and Canada, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time, depending on your country, province, or state of residence.</p>
         <p>
           In some regions (like the EEA, UK, Switzerland, and Canada), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; (iv) if applicable, to data portability; and (v) not to be subject to automated decision-making. If a decision that produces legal or similarly significant effects is made solely by automated means, we will inform you, explain the main factors, and offer a simple way to request human review. In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section &apos;HOW CAN YOU CONTACT US ABOUT THIS NOTICE?&apos; below.
@@ -194,10 +202,10 @@ export function PrivacyPolicyBody() {
         <p>
           <strong>Opting out of marketing and promotional communications:</strong> You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details provided in the section &apos;HOW CAN YOU CONTACT US ABOUT THIS NOTICE?&apos; below. You will then be removed from the marketing lists. However, we may still communicate with you, for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.
         </p>
-        <p>If you have questions or comments about your privacy rights, you may email us at hello@ursa.travel.</p>
+        <p>If you have questions or comments about your privacy rights, you may email us at <EmailLink />.</p>
       </PolicySection>
 
-      <PolicySection title="9. CONTROLS FOR DO-NOT-TRACK FEATURES">
+      <PolicySection id="section-9" title="9. CONTROLS FOR DO-NOT-TRACK FEATURES">
         <p>
           Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&apos;DNT&apos;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognising and implementing DNT signals has been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Notice.
         </p>
@@ -206,7 +214,7 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?">
+      <PolicySection id="section-10" title="10. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?">
         <p>
           <strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Maryland, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode Island, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. More information is provided below.
         </p>
@@ -292,7 +300,7 @@ export function PrivacyPolicyBody() {
         </ul>
         <Subheading>How to Exercise Your Rights</Subheading>
         <p>
-          To exercise these rights, you can contact us by visiting https://ursa.travel/contact, by emailing us at hello@ursa.travel, by visiting ursa.travel/contact, or by referring to the contact details at the bottom of this document.
+          To exercise these rights, you can contact us by visiting https://ursa.travel/contact, by emailing us at <EmailLink />, by visiting ursa.travel/contact, or by referring to the contact details at the bottom of this document.
         </p>
         <p>
           Under certain US state data protection laws, you can designate an authorised agent to make a request on your behalf. We may deny a request from an authorised agent that does not submit proof that they have been validly authorised to act on your behalf in accordance with applicable laws.
@@ -306,7 +314,7 @@ export function PrivacyPolicyBody() {
         </p>
         <Subheading>Appeals</Subheading>
         <p>
-          Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at hello@ursa.travel. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
+          Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <EmailLink />. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
         </p>
         <Subheading>California &apos;Shine The Light&apos; Law</Subheading>
         <p>
@@ -314,15 +322,15 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="11. DO WE MAKE UPDATES TO THIS NOTICE?">
+      <PolicySection id="section-11" title="11. DO WE MAKE UPDATES TO THIS NOTICE?">
         <p><strong>In Short:</strong> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
         <p>
           We may update this Privacy Notice from time to time. The updated version will be indicated by an updated &apos;Revised&apos; date at the top of this Privacy Notice. If we make material changes to this Privacy Notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this Privacy Notice frequently to be informed of how we are protecting your information.
         </p>
       </PolicySection>
 
-      <PolicySection title="12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?">
-        <p>If you have questions or comments about this notice, you may email us at hello@ursa.travel or contact us by post at:</p>
+      <PolicySection id="section-12" title="12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?">
+        <p>If you have questions or comments about this notice, you may email us at <EmailLink /> or contact us by post at:</p>
         <p>
           Ursa Travel LLC<br />
           931 Richvale<br />
@@ -330,7 +338,7 @@ export function PrivacyPolicyBody() {
           United States
         </p>
         <p>
-          If you are a resident in the European Economic Area, we are the &apos;data controller&apos; of your personal information. We have appointed Ursa Travel to be our representative in the EEA. You can contact them directly regarding our processing of your information, by email at hello@ursa.travel, or by post to:
+          If you are a resident in the European Economic Area, we are the &apos;data controller&apos; of your personal information. We have appointed Ursa Travel to be our representative in the EEA. You can contact them directly regarding our processing of your information, by email at <EmailLink />, or by post to:
         </p>
         <p>
           Espoo, Uusimaa<br />
@@ -338,7 +346,7 @@ export function PrivacyPolicyBody() {
         </p>
       </PolicySection>
 
-      <PolicySection title="13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?">
+      <PolicySection id="section-13" title="13. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?">
         <p>
           Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: https://ursa.travel/contact.
         </p>
